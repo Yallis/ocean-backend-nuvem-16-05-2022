@@ -1,4 +1,11 @@
 require("dotenv").config()
+
+const dotenv = require('dotenv')
+const dotenvExpand = require('dotenv-expand')
+
+const myEnv = dotenv.config()
+dotenvExpand.expand(myEnv)
+
 const express = require("express");
 const { MongoClient, ObjectId } = require("mongodb");
 
@@ -75,9 +82,8 @@ async function main() {
 
     // Adicionamos esse item obtido dentro da lista de heróis
     await collection.insertOne(item);
-    console.log("Item adicionado com sucesso! ", req.params.name);
-
     res.send(item);
+    console.log("Item adicionado com sucesso! : ", req.params.name);    
   });
 
   // Update (Editar um item)
