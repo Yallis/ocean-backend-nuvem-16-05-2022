@@ -74,6 +74,7 @@ async function main() {
 
     // Adicionamos esse item obtido dentro da lista de heróis
     await collection.insertOne(item);
+    res.send("Item adicionado com sucesso! ", req.params.name);
 
     res.send(item);
   });
